@@ -1,1 +1,0 @@
-"..\StoicGoose.GLWindow-v002/StoicGoose.GLWindow.exe" ".\CCS_StnFnCC_CHS_test.ws"
