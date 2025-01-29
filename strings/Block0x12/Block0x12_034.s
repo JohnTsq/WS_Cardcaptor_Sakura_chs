@@ -1,6 +1,6 @@
 ;Block0x12_034
 ;子文件文本，共1条子文本
-.align 2 :: Block0x12_034_000:
+.align 2,0xFF :: Block0x12_034_000:
 ;－－－－－－－－－－－－－－－－－－－－
 ;.strn "{说话人_未知_头像图片}"
 ;.strn "つぎ　育成(平日){换行}"
@@ -14,7 +14,7 @@
 
 
 ;子文件文本指针
-.align 2 :: Block0x12_034_Ptr:
+.align 2,0xFF :: Block0x12_034_Ptr:
     .hword (Block0x12_034_000 & 0xF),(((Block0x12_034_000 & 0xFFF0)>>4) + OffsetOfBlock0x12InRamSegment)
 
 

@@ -1,6 +1,6 @@
 ;Block0x11_041
 ;子文件文本，共5条子文本
-.align 2 :: Block0x11_041_000:
+.align 2,0xFF :: Block0x11_041_000:
 ;－－－－－－－－－－－－－－－－－－－－
 ;.strn "{说话人_未知_头像图片}"
 ;.strn "{结束}"
@@ -10,7 +10,7 @@
 ;－－－－－－－－－－－－－－－－－－－－
 
 
-.align 2 :: Block0x11_041_001:
+.align 2,0xFF :: Block0x11_041_001:
 ;－－－－－－－－－－－－－－－－－－－－
 ;.strn "{说话人_小樱_头像图片}"
 ;.strn "お兄ちゃん{结束}"
@@ -20,7 +20,7 @@
 ;－－－－－－－－－－－－－－－－－－－－
 
 
-.align 2 :: Block0x11_041_002:
+.align 2,0xFF :: Block0x11_041_002:
 ;－－－－－－－－－－－－－－－－－－－－
 ;.strn "{说话人_未知_头像图片}"
 ;.strn "……{结束}"
@@ -30,7 +30,7 @@
 ;－－－－－－－－－－－－－－－－－－－－
 
 
-.align 2 :: Block0x11_041_003:
+.align 2,0xFF :: Block0x11_041_003:
 ;－－－－－－－－－－－－－－－－－－－－
 ;.strn "{说话人_小樱_头像图片}"
 ;.strn "あや､いないのか､{换行}"
@@ -42,7 +42,7 @@
 ;－－－－－－－－－－－－－－－－－－－－
 
 
-.align 2 :: Block0x11_041_004:
+.align 2,0xFF :: Block0x11_041_004:
 ;－－－－－－－－－－－－－－－－－－－－
 ;.strn "{说话人_小樱_头像图片}"
 ;.strn "ふう､もう今日はやること{换行}"
@@ -56,7 +56,7 @@
 
 
 ;子文件文本指针
-.align 2 :: Block0x11_041_Ptr:
+.align 2,0xFF :: Block0x11_041_Ptr:
     .hword (Block0x11_041_000 & 0xF),(((Block0x11_041_000 & 0xFFF0)>>4) + OffsetOfBlock0x11InRamSegment)
     .hword (Block0x11_041_001 & 0xF),(((Block0x11_041_001 & 0xFFF0)>>4) + OffsetOfBlock0x11InRamSegment)
     .hword (Block0x11_041_002 & 0xF),(((Block0x11_041_002 & 0xFFF0)>>4) + OffsetOfBlock0x11InRamSegment)

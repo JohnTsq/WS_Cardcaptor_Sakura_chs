@@ -138,7 +138,7 @@ void decodeBinaryFile(const char* binaryFile, const char* charmapFile) {
             unsigned char buffer[1];
             unsigned int hexValue;
 
-            fprintf(outputSub, ".align 2 :: Block0x11_042_%03d: .strn \"", j);
+            fprintf(outputSub, ".align 2,0xFF :: Block0x11_042_%03d: .strn \"", j);
             fseek(input,OffsetOfTexts[j],SEEK_SET);
             //人物头像
             hexValue = fgetc(input);
@@ -182,7 +182,7 @@ void decodeBinaryFile(const char* binaryFile, const char* charmapFile) {
         fprintf(outputSub, "\n");
         //子文件文本指针
         fprintf(outputSub, ";子文件文本指针\n");
-        fprintf(outputSub, ".align 2 :: Block0x11_042_Ptr:\n");
+        fprintf(outputSub, ".align 2,0xFF :: Block0x11_042_Ptr:\n");
         //循环写入各文本偏移位置
         for(int j = 0;j<TextsCounts;j++)
             fprintf(outputSub, "    .hword (Block0x11_042_%03d & 0xF),(((Block0x11_042_%03d & 0xFFF0)>>4) + OffsetOfBlock0x11InRamSegment)\n",j,j);

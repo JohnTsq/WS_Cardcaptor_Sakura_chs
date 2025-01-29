@@ -126,7 +126,7 @@ printf("子文件数量统计完成！\n");
     fprintf(outputMain, ";子文件\n");
     for(int i = 0;i<SubFileCounts;i++)
     {
-        fprintf(outputMain, ".align 2 :: %s_%03d: .include \".\\strings\\%s\\%s_%03d.s\"\n",MainFileName,i,MainFileName,MainFileName,i);
+        fprintf(outputMain, ".align 2,0xFF :: %s_%03d: .include \".\\strings\\%s\\%s_%03d.s\"\n",MainFileName,i,MainFileName,MainFileName,i);
 //printf("working2！\n");
         //创建子文件独立文件
         char SubFileName[256];
@@ -189,7 +189,7 @@ printf("子文件数量统计完成！\n");
                 "观月","山崎","空","未知",
             };
 
-            fprintf(outputSub, ".align 2 :: %s_%03d:\n", SubFileName,j);
+            fprintf(outputSub, ".align 2,0xFF :: %s_%03d:\n", SubFileName,j);
 
 
             fprintf(outputSub, ";－－－－－－－－－－－－－－－－－－－－\n");
@@ -267,7 +267,7 @@ printf("子文件数量统计完成！\n");
         fprintf(outputSub, "\n");
         //子文件文本指针
         fprintf(outputSub, ";子文件文本指针\n");
-        fprintf(outputSub, ".align 2 :: %s_Ptr:\n", SubFileName);
+        fprintf(outputSub, ".align 2,0xFF :: %s_Ptr:\n", SubFileName);
         //循环写入各文本偏移位置
         for(int j = 0;j<TextsCounts;j++)
             fprintf(outputSub, "    .hword (%s_%03d & 0xF),(((%s_%03d & 0xFFF0)>>4) + OffsetOf%sInRamSegment)\n", SubFileName,j,SubFileName,j,MainFileName);
