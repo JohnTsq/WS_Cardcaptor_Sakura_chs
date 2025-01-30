@@ -1,15 +1,15 @@
 import os, re
 
 def count_chars(file_path, char_counts):
-    match_pattern = re.compile(r' .strn "(.*)"')
-    sub_pattern = re.compile(r'\{.*?\}')
 
     with open(file_path, 'r', encoding='utf-8') as file:
+        match_pattern = re.compile(r' .strn "(.*)"')
+        sub_pattern = re.compile(r'\{.*?\}')
         matches = "".join(match_pattern.findall(file.read()))
         matches = sub_pattern.sub('', matches)
         
         for char in matches:
-            if char in '０１２３４５６７８９！？…～♡ỽ()｢｣『』。､․· 　♪Ⓓ☆ⓏⒶⒷⓄＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺ':
+            if char in '０１２３４５６７８９ー！？…～♡ỽ!?()｢｣『』。､․· 　♪Ⓓ☆ⓏⒶⒷⓄＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺ':
                 continue
             elif char in char_counts:
                 char_counts[char] += 1
@@ -34,7 +34,7 @@ for root, dirs, files in os.walk(path):
 path = r"strings\Block0x12"
 for root, dirs, files in os.walk(path):
     for file in files:
-        if file[-5:-3] in ('06', '09', '10'):
+        if file[-5:-3] in ('09', '10'):
             # print(file)
             continue
         string_file_path = os.path.join(root, file)
@@ -45,6 +45,32 @@ print(len(char_counts))
 # for k, v in char_counts.items():
 #     print(f'{k}: {v}')
 
+"""
+# 沿用
+## 00-09 阿拉伯数字
+## 65 假名长音——可替换字模
+## 66-6B 单体符号
+## 6C-6D 符号组合——仍需评估
+## D2-D7 括号直角引号——可替换字模
+## F0-F5 半宽标点——可替换字模
+## F9-FF 空白符和控制符
+## FB6C=♪
+## FB75=Ⓓ
+## FB95=☆
+## FB97=Ⓩ
+## FBBA=Ⓐ
+## FBBB=Ⓑ
+## FBBC=Ⓞ
+## FBBD-FBD6 全角大写字母——可替换字模
+
+# 保留但不使用
+## 0A-64 一般假名
+## D8-F8 小假名和未使用码点
+
+
+# 替换对应简中汉字
+## 6E-D1 单字节汉字，有重复
+"""
 
 charmap_chs = """
 00={说话人_小樱_头像图片}
@@ -169,21 +195,20 @@ FBD6=Ｚ
 """
 iter_char = iter(char_counts.keys())
 
-with open(r'charmap_chs_10-64.tbl', 'w', encoding='utf-8') as f:
-    for code_point in range(0x10, 0x65):
-        f.write(f'{code_point:02X}={next(iter_char)}\n')
-with open(r'charmap_chs_6E-D1.tbl', 'w', encoding='utf-8') as f:
-    for code_point in range(0x6E, 0xD2):
-        f.write(f'{code_point:02X}={next(iter_char)}\n')
+# with open(r'charmap_chs_10-64.tbl', 'w', encoding='utf-8') as f:
+#     for code_point in range(0x10, 0x65):
+#         f.write(f'{code_point:02X}={next(iter_char)}\n')
+# with open(r'charmap_chs_6E-D1.tbl', 'w', encoding='utf-8') as f:
+#     for code_point in range(0x6E, 0xD2):
+#         f.write(f'{code_point:02X}={next(iter_char)}\n')
 
-with open(r'charmap_chs_test0121.tbl', 'w', encoding='utf-8') as f:
+with open(r'charmap_chs_test0130.tbl', 'w', encoding='utf-8') as f:
     f.write(charmap_chs)
-    with open(r'charmap_chs_10-64.tbl', 'r', encoding='utf-8') as g:
-        f.write(g.read())
-    with open(r'charmap_chs_6E-D1.tbl', 'r', encoding='utf-8') as g:
-        f.write(g.read())
+    # with open(r'charmap_chs_10-64.tbl', 'r', encoding='utf-8') as g:
+    #     f.write(g.read())
+    # with open(r'charmap_chs_6E-D1.tbl', 'r', encoding='utf-8') as g:
+    #     f.write(g.read())
     code_point = 0xDC00
     for char in iter_char:
         f.write(f'{code_point:04X}={char}\n')
         code_point += 1
-    
