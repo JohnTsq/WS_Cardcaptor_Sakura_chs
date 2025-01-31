@@ -168,7 +168,6 @@ OffsetOfBlock0x12InRamSegment   equ 0x3000
 .align 2,0xFF :: Block0x12_057: .include ".\strings\Block0x12\Block0x12_057.s"
 .align 2,0xFF :: Block0x12_058: .include ".\strings\Block0x12\Block0x12_058.s"
 .align 2,0xFF :: Block0x12_059: .include ".\strings\Block0x12\Block0x12_059.s"
-.loadtable ".\charmap_jp.txt"
 .align 2,0xFF :: Block0x12_060: .include ".\strings\Block0x12\Block0x12_060.s"
 .align 2,0xFF :: Block0x12_061: .include ".\strings\Block0x12\Block0x12_061.s"
 .align 2,0xFF :: Block0x12_062: .include ".\strings\Block0x12\Block0x12_062.s"
@@ -179,7 +178,6 @@ OffsetOfBlock0x12InRamSegment   equ 0x3000
 .align 2,0xFF :: Block0x12_067: .include ".\strings\Block0x12\Block0x12_067.s"
 .align 2,0xFF :: Block0x12_068: .include ".\strings\Block0x12\Block0x12_068.s"
 .align 2,0xFF :: Block0x12_069: .include ".\strings\Block0x12\Block0x12_069.s"
-.loadtable ".\charmap_chs_test0121.tbl"
 .align 2,0xFF :: Block0x12_070: .include ".\strings\Block0x12\Block0x12_070.s"
 .align 2,0xFF :: Block0x12_071: .include ".\strings\Block0x12\Block0x12_071.s"
 .align 2,0xFF :: Block0x12_072: .include ".\strings\Block0x12\Block0x12_072.s"
@@ -215,6 +213,6 @@ OffsetOfBlock0x12InRamSegment   equ 0x3000
 .align 2,0xFF :: Block0x12_101: .include ".\strings\Block0x12\Block0x12_101.s"
 .align 2,0xFF :: Block0x12_102: .include ".\strings\Block0x12\Block0x12_102.s"
 .align 2,0xFF :: Block0x12_103: .include ".\strings\Block0x12\Block0x12_103.s"
-.loadtable ".\charmap_chs_test0121.tbl"
+.loadtable ".\charmap_chs_test0131.tbl"
 .func Block0x12_End :: .endfunc
 .endarea

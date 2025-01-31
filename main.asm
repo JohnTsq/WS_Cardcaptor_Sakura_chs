@@ -13,7 +13,7 @@
 .include ".\graphic\font.s"
 
 ;文本
-.loadtable ".\charmap_chs_test0121.tbl"
+.loadtable ".\charmap_chs_test0131.tbl"
 .include ".\strings\Block0x10.s"
 .include ".\strings\Block0x11.s"
 .include ".\strings\Block0x12.s"
