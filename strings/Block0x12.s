@@ -209,10 +209,10 @@ OffsetOfBlock0x12InRamSegment   equ 0x3000
 .align 2,0xFF :: Block0x12_097: .include ".\strings\Block0x12\Block0x12_097.s"
 .align 2,0xFF :: Block0x12_098: .include ".\strings\Block0x12\Block0x12_098.s"
 .align 2,0xFF :: Block0x12_099: .include ".\strings\Block0x12\Block0x12_099.s"
+.loadtable ".\charmap_chs_insertion.tbl"
 .align 2,0xFF :: Block0x12_100: .include ".\strings\Block0x12\Block0x12_100.s"
 .align 2,0xFF :: Block0x12_101: .include ".\strings\Block0x12\Block0x12_101.s"
 .align 2,0xFF :: Block0x12_102: .include ".\strings\Block0x12\Block0x12_102.s"
 .align 2,0xFF :: Block0x12_103: .include ".\strings\Block0x12\Block0x12_103.s"
-.loadtable ".\charmap_chs_test0131.tbl"
 .func Block0x12_End :: .endfunc
 .endarea

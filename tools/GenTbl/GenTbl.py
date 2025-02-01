@@ -34,9 +34,14 @@ for root, dirs, files in os.walk(path):
 path = r"strings\Block0x12"
 for root, dirs, files in os.walk(path):
     for file in files:
-        if file[-5:-3] in ('09', '10'):
+        if file[-5:-3] in ('09'):
             # print(file)
             continue
+        string_file_path = os.path.join(root, file)
+        char_counts = count_chars(string_file_path, char_counts)
+path = r"strings\Block0x1F"
+for root, dirs, files in os.walk(path):
+    for file in files:
         string_file_path = os.path.join(root, file)
         char_counts = count_chars(string_file_path, char_counts)
 
@@ -296,15 +301,7 @@ FBD6=Ｚ
 temp_chars = r'今日李小狼君来会持场所出太阳炎地妹卖店知家母实中国有名道士系远渡自分开目觉使空见雷素材元兽弱集无理主人子在照问题侧咒敌谁取最罗针盘写样途食色访关系审判应探抗互角宿移动我贷创要亡候补现特杖五助峰咏唱铃新'
 iter_char = iter(char_counts.keys())
 
-# with open(r'charmap_chs_10-64.tbl', 'w', encoding='utf-8') as f:
-#     for code_point in range(0x10, 0x65):
-#         f.write(f'{code_point:02X}={next(iter_char)}\n')
-# with open(r'charmap_chs_6E-D1.tbl', 'w', encoding='utf-8') as f:
-#     for code_point in range(0x6E, 0xD2):
-#         f.write(f'{code_point:02X}={next(iter_char)}\n')
-
-with open(r'charmap_chs_test0131.tbl', 'w', encoding='utf-8') as f:
-    f.write(charmap_chs)
+with open(r'charmap_chs_font.tbl', 'w', encoding='utf-8') as f:
     # with open(r'charmap_chs_10-64.tbl', 'r', encoding='utf-8') as g:
     #     f.write(g.read())
     # with open(r'charmap_chs_6E-D1.tbl', 'r', encoding='utf-8') as g:
@@ -322,3 +319,8 @@ with open(r'charmap_chs_test0131.tbl', 'w', encoding='utf-8') as f:
             code_point = first_byte[first_byte.index(code_point >> 8) + 1] << 8
         else:
             code_point += 1
+    
+with open(r'charmap_chs_insertion.tbl', 'w', encoding='utf-8') as g:
+    g.write(charmap_chs.lstrip())
+    with open(r'charmap_chs_font.tbl', 'r', encoding='utf-8') as f:
+        g.write(f.read())
