@@ -302,10 +302,6 @@ temp_chars = r'今日李小狼君来会持场所出太阳炎地妹卖店知家�
 iter_char = iter(char_counts.keys())
 
 with open(r'charmap_chs_font.tbl', 'w', encoding='utf-8') as f:
-    # with open(r'charmap_chs_10-64.tbl', 'r', encoding='utf-8') as g:
-    #     f.write(g.read())
-    # with open(r'charmap_chs_6E-D1.tbl', 'r', encoding='utf-8') as g:
-    #     f.write(g.read())
     code_point = 0xE500
     first_byte = (0xE5, 0xF6, 0xF7, 0xF8, 0xD9, 0xDA, 0xDB)
     for char in iter_char:

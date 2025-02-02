@@ -412,8 +412,8 @@
  .strn "たﾞさい。{结束}"
 ;－－－－－－－－－－－－
 .loadtable ".\charmap_chs_insertion.tbl"
-
 .endautoregion
+
 ;子文件文本指针
 .org 0x1FA13A   ;暂勿改动指针所处地址
 ;.align 2,0xFF :: Block0x1FA13A_Ptr:
