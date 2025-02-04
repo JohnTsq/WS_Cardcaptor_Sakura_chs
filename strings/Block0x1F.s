@@ -5,10 +5,10 @@ OffsetOfBlock0x1FInRamSegment   equ 0xF000
 ;    .hword (Block0x1F6670_Ptr & 0xF),(((Block0x1F6670_Ptr & 0xFFF0)>>4) + OffsetOfBlock0x1FInRamSegment)
 
 ;子文件
-/*.align 2,0xFF :: Block0x1F6670: */;.include ".\strings\Block0x1F\Block0x1F6670.s"
-/*.align 2,0xFF :: Block0x1F678A: */;.include ".\strings\Block0x1F\Block0x1F678A.s"
-/*.align 2,0xFF :: Block0x1F69E2: */;.include ".\strings\Block0x1F\Block0x1F69E2.s"
-/*.align 2,0xFF :: Block0x1F7762: */;.include ".\strings\Block0x1F\Block0x1F7762.s"
+/*.align 2,0xFF :: Block0x1F6670: */.include ".\strings\Block0x1F\Block0x1F6670.s"
+;/*.align 2,0xFF :: Block0x1F678A: */.include ".\strings\Block0x1F\Block0x1F678A.s"
+/*.align 2,0xFF :: Block0x1F69E2: */.include ".\strings\Block0x1F\Block0x1F69E2.s"
+/*.align 2,0xFF :: Block0x1F7762: */.include ".\strings\Block0x1F\Block0x1F7762.s"
 /*.align 2,0xFF :: Block0x1F7D84: */;.include ".\strings\Block0x1F\Block0x1F7D84.s"
 /*.align 2,0xFF :: Block0x1F8294: */;.include ".\strings\Block0x1F\Block0x1F8294.s"
 /*.align 2,0xFF :: Block0x1F834A: */;.include ".\strings\Block0x1F\Block0x1F834A.s"
