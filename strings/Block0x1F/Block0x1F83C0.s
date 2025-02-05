@@ -66,7 +66,4 @@
 .endarea
 
 
-.func Block0x1F83C0_End :: .endfuncendarea
-
-
-.func Block0x1F83C0_End :: .endfunc .endfuncunc
+.func Block0x1F83C0_End :: .endfunc

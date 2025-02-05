@@ -55,7 +55,7 @@
 ;－－－－－－－－－－－－
 ;.strn "はりきっていくてﾞ{结束}"
 ;－－－－－－－－－－－－
- .strn "鼓足干劲继续吧ﾞ{结束}"
+ .strn "鼓足干劲继续吧{结束}"
 ;－－－－－－－－－－－－
 
 
@@ -82,7 +82,4 @@
 .endarea
 
 
-.func Block0x1F834A_End :: .endfunca
-
-
-.func Block0x1F834A_End :: .endfunc :: .endfunc
+.func Block0x1F834A_End :: .endfunc
