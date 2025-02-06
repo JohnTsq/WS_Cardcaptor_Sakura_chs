@@ -1,7 +1,7 @@
 ;Block0x1F83C0
 ;子文件文本，共6条子文本
-.org 0x1F836A :: .area 0x1F83C0-.,0xFF  ;原位覆写须限定area
-
+;.org 0x1F836A :: .area 0x1F83C0-.,0xFF  ;原位覆写须限定area
+.autoregion OffsetOfBlock0x1F,OffsetOfBlock0x1F+0x10000   ;原位覆写须限定area
 
 .align 2,0xFF :: Block0x1F83C0_000:
 ;－－－－－－－－－－－－
@@ -51,7 +51,7 @@
 ;－－－－－－－－－－－－
  .strn "在这里写日记呢{结束}"
 ;－－－－－－－－－－－－
-.endarea
+.endautoregion
 
 ;子文件文本指针
 .org 0x1F83C0   ;暂勿改动指针所处地址

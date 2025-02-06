@@ -34,9 +34,9 @@ for root, dirs, files in os.walk(path):
 path = r"strings\Block0x12"
 for root, dirs, files in os.walk(path):
     for file in files:
-        if file[-5:-3] in ('09'):
-            # print(file)
-            continue
+        # if file[-5:-3] in ('09'):
+        #     # print(file)
+        #     continue
         string_file_path = os.path.join(root, file)
         char_counts = count_chars(string_file_path, char_counts)
 path = r"strings\Block0x1F"

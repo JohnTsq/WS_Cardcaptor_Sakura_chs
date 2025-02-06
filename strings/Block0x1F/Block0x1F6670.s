@@ -1,7 +1,7 @@
 ;Block0x1F6670
 ;子文件文本，共39条子文本
-.org 0x1F645A :: .area 0x1F6670-.,0xFF  ;原位覆写须限定area
-
+;.org 0x1F645A :: .area 0x1F6670-.,0xFF  ;原位覆写须限定area
+.autoregion OffsetOfBlock0x1F,OffsetOfBlock0x1F+0x10000   ;原位覆写须限定area
 
 .align 2,0xFF :: Block0x1F6670_000:
 ;－－－－－－－－－－－－
@@ -321,7 +321,7 @@
 ;－－－－－－－－－－－－
  .strn "现在､还看不了的捏{结束}"
 ;－－－－－－－－－－－－
-.endarea
+.endautoregion
 
 ;子文件文本指针
 .org 0x1F6670   ;暂勿改动指针所处地址
@@ -374,6 +374,7 @@
 ;Block0x1F678A
 ;子文件文本，共6条子文本
 .org 0x1F670C :: .area 0x1F6720-.,0xFF  ;原位覆写须限定area
+.autoregion OffsetOfBlock0x1F,OffsetOfBlock0x1F+0x10000   ;原位覆写须限定area
 .align 2,0xFF :: Block0x1F678A_000:
 ;－－－－－－－－－－－－
 ;.strn "今週は{换行}"
@@ -383,15 +384,15 @@
  .strn "准备做点啥呢？{换行}{结束}"
 ;－－－－－－－－－－－－
 .endarea
+.endautoregion
 
 .org 0x1F6720 :: .area 0x1F673A-.,0xFF  ;原位覆写须限定area
 .align 2,0xFF :: Block0x1F678A_001:
 ;－－－－－－－－－－－－
-;.strn "{FA}{FA}{FA}{FA}{FA}と{FA}{FA}{FA}{FA}{FA}を{换行}"
 ;.strn "がんばるんやな？{换行}{结束}{结束}"
 ;－－－－－－－－－－－－
- .strn "{FA}{FA}{FA}{FA}{FA}和{FA}{FA}{FA}{FA}{FA}要{换行}"
- .strn "来努努力嘛？{换行}{结束}"
+ .strn "{0xFA}{0xFA}{0xFA}{0xFA}{0xFA}和{0xFA}{0xFA}{0xFA}{0xFA}{0xFA}要{换行}"
+ .strn "努努力嘛？{换行}{结束}"
 ;－－－－－－－－－－－－
 .endarea
 
@@ -399,18 +400,18 @@
 .org 0x1F673A :: .area 0x1F678A-.,0xFF  ;原位覆写须限定area
 .align 2,0xFF :: Block0x1F678A_002:
 ;－－－－－－－－－－－－
-;.strn "{FA}{FA}{FA}{FA}{FA}を{换行}"
+;.strn "{0xFA}{0xFA}{0xFA}{0xFA}{0xFA}を{换行}"
 ;.strn "がんばるんやな？{换行}{结束}{结束}"
 ;－－－－－－－－－－－－
- .strn "{FA}{FA}{FA}{FA}{FA}要{换行}"
- .strn "来努努力嘛？{换行}{结束}"
+ .strn "{0xFA}{0xFA}{0xFA}{0xFA}{0xFA}要{换行}"
+ .strn "努努力嘛？{换行}{结束}"
 ;－－－－－－－－－－－－
 
 .align 2,0xFF :: Block0x1F678A_003:
 ;－－－－－－－－－－－－
 ;.strn "持ちものをかくにんするね{换行}{结束}"
 ;－－－－－－－－－－－－
- .strn "来看看都带了点啥啊{换行}{结束}"
+ .strn "都带了点啥啊{换行}{结束}"
 ;－－－－－－－－－－－－
 
 .align 2,0xFF :: Block0x1F678A_004:
@@ -466,7 +467,7 @@
 ;子文件文本指针
 .org 0x1F678A   ;暂勿改动指针所处地址
 ;.align 2,0xFF :: Block0x1F678A_Ptr:
-.area 0x1F67A2-.        ;原位覆写须限定area
+.area 0x1F67B6-.        ;原位覆写须限定area
         .hword (Block0x1F678A_005 & 0xF),(((Block0x1F678A_005 & 0xFFF0)>>4) + OffsetOfBlock0x1fInRamSegment)
         .hword (Block0x1F678A_006 & 0xF),(((Block0x1F678A_006 & 0xFFF0)>>4) + OffsetOfBlock0x1fInRamSegment)
         .hword (Block0x1F678A_007 & 0xF),(((Block0x1F678A_007 & 0xFFF0)>>4) + OffsetOfBlock0x1fInRamSegment)

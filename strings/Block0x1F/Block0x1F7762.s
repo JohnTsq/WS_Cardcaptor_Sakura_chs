@@ -1,7 +1,7 @@
 ;Block0x1F7762
 ;子文件文本，共6条子文本
-.org 0x1F6AA4 :: .area 0x1F6B0C-.,0xFF  ;原位覆写须限定area
-
+;.org 0x1F6AA4 :: .area 0x1F6B0C-.,0xFF  ;原位覆写须限定area
+.autoregion OffsetOfBlock0x1F,OffsetOfBlock0x1F+0x10000   ;原位覆写须限定area
 
 .align 2,0xFF :: Block0x1F7762_000:
 ;－－－－－－－－－－－－
@@ -59,7 +59,7 @@
  .strn "很努力了呀{结束}"
 ;－－－－－－－－－－－－
 
-.endarea
+.endautoregion
 
 ;子文件文本指针
 .org 0x1F7762   ;暂勿改动指针所处地址

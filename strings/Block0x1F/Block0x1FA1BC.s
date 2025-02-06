@@ -1,7 +1,7 @@
 ;Block0x1FA1BC
 ;子文件文本，共53条子文本
-.org 0x1F9A74 :: .area 0x1F9C86-.,0xFF  ;原位覆写须限定area
-
+;.org 0x1F9A74 :: .area 0x1F9C86-.,0xFF  ;原位覆写须限定area
+.autoregion OffsetOfBlock0x1F,OffsetOfBlock0x1F+0x10000   ;原位覆写须限定area
 
 .align 2,0xFF :: Block0x1FA1BC_000:
 ;－－－－－－－－－－－－
@@ -425,7 +425,7 @@
 ;－－－－－－－－－－－－
  .strn "月{0xFA}{0xFA}{0xFA}{0xFA}{0xFA}{0xFA}{结束}{结束}"
 ;－－－－－－－－－－－－
-.endarea
+.endautoregion
 
 ;子文件文本指针
 .org 0x1FA1BC   ;暂勿改动指针所处地址

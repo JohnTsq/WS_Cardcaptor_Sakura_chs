@@ -1,7 +1,7 @@
 ;Block0x1F834A
 ;子文件文本，共8条子文本
-.org 0x1F82E8 :: .area 0x1F834A-.,0xFF  ;原位覆写须限定area
-
+;.org 0x1F82E8 :: .area 0x1F834A-.,0xFF  ;原位覆写须限定area
+.autoregion OffsetOfBlock0x1F,OffsetOfBlock0x1F+0x10000   ;原位覆写须限定area
 
 .align 2,0xFF :: Block0x1F834A_000:
 ;－－－－－－－－－－－－
@@ -65,7 +65,7 @@
 ;－－－－－－－－－－－－
  .strn "那么就开始了？{结束}"
 ;－－－－－－－－－－－－
-.endarea
+.endautoregion
 
 ;子文件文本指针
 .org 0x1F834A   ;暂勿改动指针所处地址
