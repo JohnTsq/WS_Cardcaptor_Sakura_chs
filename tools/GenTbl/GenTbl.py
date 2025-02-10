@@ -42,6 +42,8 @@ for root, dirs, files in os.walk(path):
 path = r"strings\Block0x1F"
 for root, dirs, files in os.walk(path):
     for file in files:
+        if any((addr in file) for addr in ('0x1FADBC','0x1FB1B2','0x1FBA46','0x1FC210')):
+            continue
         string_file_path = os.path.join(root, file)
         char_counts = count_chars(string_file_path, char_counts)
 
