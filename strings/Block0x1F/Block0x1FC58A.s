@@ -10,13 +10,16 @@
  .strn "库洛牌！{结束}"
 .endarea
 
-.org 0x1FC592 :: .area 0x1FC59E-.,0xFF
+; .org 0x1FC592 :: .area 0x1FC59E-.,0xFF
+.autoregion OffsetOfBlock0x1F,OffsetOfBlock0x1F+BlockSize   ;原位覆写须限定area
 .align 2,0xFF :: Block0x1FC58A_002:
 ;.strn "日っきをつけるんやな{换行}{结束}"
  .strn "在这里写日记啊{换行}{结束}"
-.endarea
+.endautoregion
+; .endarea
 
-.org 0x1FC5A2 :: .area 0x1FC5BC-.,0xFF
+; .org 0x1FC5A2 :: .area 0x1FC5BC-.,0xFF
+.autoregion OffsetOfBlock0x1F,OffsetOfBlock0x1F+BlockSize   ;原位覆写须限定area
 .align 2,0xFF :: Block0x1FC58A_003:
 ;.strn "汝のあるへﾞき姿にもとﾞれ{结束}"
  .strn "恢复你原来的样子！{结束}"
@@ -24,9 +27,11 @@
 .align 2,0xFF :: Block0x1FC58A_004:
 ;.strn "クロウカートﾞ！{结束}"
  .strn "库洛牌！{结束}"
-.endarea
+.endautoregion
+; .endarea
 
-.org 0x1FC5C4 :: .area 0x1FC5E8-.,0xFF
+; .org 0x1FC5C4 :: .area 0x1FC5E8-.,0xFF
+.autoregion OffsetOfBlock0x1F,OffsetOfBlock0x1F+BlockSize   ;原位覆写须限定area
 .align 2,0xFF :: Block0x1FC58A_005:
 ;.strn "闇の力をひめし鍵よ{结束}"
  .strn "隐藏着黑暗力量的钥匙啊{结束}"
@@ -38,7 +43,8 @@
 .align 2,0xFF :: Block0x1FC58A_007:
 ;.strn "レリースﾞ{结束}"
  .strn "封印解除{结束}"
-.endarea
+.endautoregion
+; .endarea
 
 .org 0x1FC5F6 :: .area 0x1FC6B2-.,0xFF
 .align 2,0xFF :: Block0x1FC58A_008:
@@ -192,7 +198,6 @@
         .hword (Block0x1FC58A_032 & 0xF),(((Block0x1FC58A_032 & 0xFFF0)>>4) + OffsetOfBlock0x1fInRamSegment)
         .hword (Block0x1FC58A_033 & 0xF),(((Block0x1FC58A_033 & 0xFFF0)>>4) + OffsetOfBlock0x1fInRamSegment)
         .hword (Block0x1FC58A_034 & 0xF),(((Block0x1FC58A_034 & 0xFFF0)>>4) + OffsetOfBlock0x1fInRamSegment)
-.endarea
 
 
 .func Block0x1FC58A_End :: .endfunc

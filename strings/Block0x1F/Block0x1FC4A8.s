@@ -1,6 +1,7 @@
 ;Block0x1FC4A8
 ;子文件文本，共26条子文本
-.org 0x1FC3A0 :: .area 0x1FC4A8-.,0xFF  ;原位覆写须限定area
+; .org 0x1FC3A0 :: .area 0x1FC4A8-.,0xFF  ;原位覆写须限定area
+.autoregion OffsetOfBlock0x1F,OffsetOfBlock0x1F+BlockSize   ;原位覆写须限定area
 
 
 .align 2,0xFF :: Block0x1FC4A8_000:
@@ -209,7 +210,8 @@
 ;－－－－－－－－－－－－
  .strn "成为贯穿魔咒的白羽吧！{结束}"
 ;－－－－－－－－－－－－
-.endarea
+.endautoregion
+; .endarea
 
 
 ;子文件文本指针

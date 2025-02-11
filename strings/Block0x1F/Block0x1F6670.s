@@ -1,7 +1,7 @@
 ;Block0x1F6670
 ;子文件文本，共39条子文本
 ;.org 0x1F645A :: .area 0x1F6670-.,0xFF  ;原位覆写须限定area
-.autoregion OffsetOfBlock0x1F,OffsetOfBlock0x1F+0x10000   ;原位覆写须限定area
+.autoregion OffsetOfBlock0x1F,OffsetOfBlock0x1F+BlockSize   ;原位覆写须限定area
 
 .align 2,0xFF :: Block0x1F6670_000:
 ;－－－－－－－－－－－－
@@ -374,7 +374,7 @@
 ;Block0x1F678A
 ;子文件文本，共6条子文本
 ;.org 0x1F670C :: .area 0x1F6720-.,0xFF  ;原位覆写须限定area
-.autoregion OffsetOfBlock0x1F,OffsetOfBlock0x1F+0x10000   ;原位覆写须限定area
+.autoregion OffsetOfBlock0x1F,OffsetOfBlock0x1F+BlockSize   ;原位覆写须限定area
 .align 2,0xFF :: Block0x1F678A_000:
 ;－－－－－－－－－－－－
 ;.strn "今週は{换行}"

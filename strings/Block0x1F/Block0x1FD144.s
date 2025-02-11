@@ -1,6 +1,7 @@
 ;Block0x1FD144
 ;子文件文本，共41条子文本
-.org 0x1FCD6C :: .area 0x1FD144-.,0xFF  ;原位覆写须限定area
+; .org 0x1FCD6C :: .area 0x1FD144-.,0xFF  ;原位覆写须限定area
+.autoregion OffsetOfBlock0x1F,OffsetOfBlock0x1F+BlockSize   ;原位覆写须限定area
 
 
 .align 2,0xFF :: Block0x1FD144_000:
@@ -423,7 +424,8 @@
  .strn "漫画杂志。{换行}"
  .strn "可以稍微减少疲劳{结束}"
 ;－－－－－－－－－－－－
-.endarea
+.endautoregion
+; .endarea
 
 ;子文件文本指针
 .org 0x1FD144   ;暂勿改动指针所处地址

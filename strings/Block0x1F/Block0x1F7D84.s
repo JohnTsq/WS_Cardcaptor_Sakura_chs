@@ -1,7 +1,7 @@
 ;Block0x1F7D84
 ;子文件文本，共37条子文本
 ;.org 0x1F799E :: .area 0x1F7D84-.,0xFF   ;原位覆写须限定area
-.autoregion OffsetOfBlock0x1F,OffsetOfBlock0x1F+0x10000   ;原位覆写须限定area
+.autoregion OffsetOfBlock0x1F,OffsetOfBlock0x1F+BlockSize   ;原位覆写须限定area
 
 .align 2,0xFF :: Block0x1F7D84_000:
 ;－－－－－－－－－－－－

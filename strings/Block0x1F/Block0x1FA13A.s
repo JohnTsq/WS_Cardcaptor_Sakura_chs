@@ -1,7 +1,7 @@
 ;Block0x1FA13A
 ;子文件文本，共25条子文本
 ;.org 0x1F9C86   ;可自定义文本地址
-.autoregion OffsetOfBlock0x1F,OffsetOfBlock0x1F+0x10000   ;原位覆写须限定area
+.autoregion OffsetOfBlock0x1F,OffsetOfBlock0x1F+BlockSize   ;原位覆写须限定area
 
 .align 2,0xFF :: Block0x1FA13A_000:
 ;－－－－－－－－－－－－
