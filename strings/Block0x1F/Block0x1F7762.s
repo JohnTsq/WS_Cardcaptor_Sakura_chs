@@ -72,6 +72,10 @@
         .hword (Block0x1F7762_004 & 0xF),(((Block0x1F7762_004 & 0xFFF0)>>4) + OffsetOfBlock0x1fInRamSegment)
         .hword (Block0x1F7762_005 & 0xF),(((Block0x1F7762_005 & 0xFFF0)>>4) + OffsetOfBlock0x1fInRamSegment)
 .endarea
+.org 0x1DDE53
+        .hword (Block0x1F7762_006 & 0xF)
+        .skip 1
+        .hword (((Block0x1F7762_006 & 0xFFF0)>>4) + OffsetOfBlock0x1fInRamSegment)
 
 
 .func Block0x1F7762_End :: .endfunc
