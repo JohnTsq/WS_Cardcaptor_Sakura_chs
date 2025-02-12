@@ -396,6 +396,10 @@
 ;－－－－－－－－－－－－
 .endarea
 
+; 由于重新编码，“和”比“と”多一个字节，需调整其后文本指针
+.org 0x1DB1CC
+    .byte 0xB8,0xAF,0x10    ; mov ax,0x10AF
+
 
 .org 0x1F673A :: .area 0x1F678A-.,0xFF  ;原位覆写须限定area
 .align 2,0xFF :: Block0x1F678A_002:

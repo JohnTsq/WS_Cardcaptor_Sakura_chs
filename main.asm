@@ -21,8 +21,6 @@
 .include ".\strings\Block0x12.s"
 .include ".\strings\Block0x1F.s"
 
-;修复重编码后的文本操作
-.include ".\src\fixtextoperation.s"
 
 ;图片
 .include ".\graphic\battle.s"
