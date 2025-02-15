@@ -7,6 +7,7 @@ OffsetOfBlock0x1FInRamSegment   equ 0xF000
 .include ".\strings\Block0x1F\Block0x1F69E2.s"
 .include ".\strings\Block0x1F\Block0x1F7762.s"
 .include ".\strings\Block0x1F\Block0x1F7D84.s"
+.include ".\strings\Block0x1F\Block0x1F7E54.s"
 .include ".\strings\Block0x1F\Block0x1F8294.s"
 .include ".\strings\Block0x1F\Block0x1F834A.s"
 .include ".\strings\Block0x1F\Block0x1F83C0.s"
