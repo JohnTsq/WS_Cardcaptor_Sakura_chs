@@ -2,6 +2,7 @@ OffsetOfBlock0x1FInRamSegment   equ 0xF000
 .org OffsetOfBlock0x1F
 
 ;子文件
+.include ".\strings\Block0x1F\Block0x1F6060.s"
 .include ".\strings\Block0x1F\Block0x1F6670.s"
 .include ".\strings\Block0x1F\Block0x1F69E2.s"
 .include ".\strings\Block0x1F\Block0x1F7762.s"
