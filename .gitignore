@@ -15,3 +15,5 @@
 *.ss3
 *.ss4
 .vscode
+*.2bpp
+*.map
