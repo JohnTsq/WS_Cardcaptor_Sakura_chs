@@ -24,6 +24,7 @@
 
 ;图片
 .include ".\graphic\battle.s"
+.include ".\graphic\textspeed.s"
 
 ;数据
 .include ".\data\data.s"
