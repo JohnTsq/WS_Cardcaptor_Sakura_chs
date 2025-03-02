@@ -49,7 +49,7 @@
 .org 0x1FC5F6 :: .area 0x1FC6B2-.,0xFF
 .align 2,0xFF :: Block0x1FC58A_008:
 ;.strn "オーフﾟニンクﾞ{结束}"
- .strn "主题曲{结束}"
+ .strn "片头曲{结束}"
 
 .align 2,0xFF :: Block0x1FC58A_009:
 ;.strn "夢{结束}"
@@ -153,7 +153,7 @@
 
 .align 2,0xFF :: Block0x1FC58A_034:
 ;.strn "エンテﾞィンクﾞ{结束}"
- .strn "通关音乐{结束}"
+ .strn "片尾曲{结束}"
 .endarea
 
 ;子文件文本指针
