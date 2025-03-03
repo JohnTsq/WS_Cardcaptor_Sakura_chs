@@ -398,7 +398,6 @@
 ;－－－－－－－－－－－－
 
 
-.loadtable ".\charmap_jp.txt"
 .align 2,0xFF :: Block0x1FA13A_024:
 ;－－－－－－－－－－－－
 ;.strn "アロー{换行}"
@@ -411,7 +410,6 @@
  .strn "所以还请{换行}"
  .strn "稍等一下{结束}"
 ;－－－－－－－－－－－－
-.loadtable ".\charmap_chs_insertion.tbl"
 .endautoregion
 
 ;子文件文本指针

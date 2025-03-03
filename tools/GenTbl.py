@@ -9,7 +9,7 @@ def count_chars(file_path, char_counts):
         matches = sub_pattern.sub('', matches)
         
         for char in matches:
-            if char in '０１２３４５６７８９ー！？…～♡ỽ!?()｢｣『』。､․· 　♪Ⓓ☆ⓏⒶⒷⓄＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺ':
+            if char in '０１２３４５６７８９ー！？…～♡ỽ!?()｢｣『』。，․· 　♪Ⓓ☆ⓏⒶⒷⓄＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺ':
                 continue
             elif char in char_counts:
                 char_counts[char] += 1
@@ -42,7 +42,7 @@ for root, dirs, files in os.walk(path):
 path = r"strings\Block0x1F"
 for root, dirs, files in os.walk(path):
     for file in files:
-        if any((addr in file) for addr in ('0x1FADBC','0x1FB1B2','0x1FBA46','0x1FC210','0x1FCB58')):
+        if any((addr in file) for addr in ('0x1FB1B2','0x1FCB58')):
             continue
         string_file_path = os.path.join(root, file)
         char_counts = count_chars(string_file_path, char_counts)
@@ -252,7 +252,7 @@ ED=ょ
 EE=っ
 EF={█6}
 F0=。
-F1=､
+F1=，
 F2=ﾞ
 F3=ﾟ
 F4=․
@@ -303,7 +303,7 @@ FBD6=Ｚ
 temp_chars = r'今日李小狼君来会持场所出太阳炎地妹卖店知家母实中国有名道士系远渡自分开目觉使空见雷素材元兽弱集无理主人子在照问题侧咒敌谁取最罗针盘写样途食色访关系审判应探抗互角宿移动我贷创要亡候补现特杖五助峰咏唱铃新'
 iter_char = iter(char_counts.keys())
 
-with open(r'charmap_chs_font.tbl', 'w', encoding='utf-8') as f:
+with open(r'graphic\fonts\charmap_chs_font.tbl', 'w', encoding='utf-8') as f:
     code_point = 0xE500
     first_byte = (0xE5, 0xF6, 0xF7, 0xF8, 0xD9, 0xDA, 0xDB)
     for char in iter_char:
@@ -320,5 +320,5 @@ with open(r'charmap_chs_font.tbl', 'w', encoding='utf-8') as f:
     
 with open(r'charmap_chs_insertion.tbl', 'w', encoding='utf-8') as g:
     g.write(charmap_chs.lstrip())
-    with open(r'charmap_chs_font.tbl', 'r', encoding='utf-8') as f:
+    with open(r'graphic\fonts\charmap_chs_font.tbl', 'r', encoding='utf-8') as f:
         g.write(f.read())

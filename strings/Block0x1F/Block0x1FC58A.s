@@ -109,7 +109,7 @@
 
 .align 2,0xFF :: Block0x1FC58A_023:
 ;.strn "クロウカートﾞ{结束}"
- .strn "库洛牌ﾞ{结束}"
+ .strn "库洛牌{结束}"
 
 .align 2,0xFF :: Block0x1FC58A_024:
 ;.strn "封印解除{结束}"
