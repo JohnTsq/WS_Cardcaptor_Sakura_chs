@@ -27,6 +27,7 @@
 .include ".\graphic\soundtest.s"
 .include ".\graphic\textspeed.s"
 .include ".\graphic\title.s"
+.include ".\graphic\boot.s"
 
 ;数据
 .include ".\data\data.s"
