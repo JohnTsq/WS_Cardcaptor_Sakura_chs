@@ -1,6 +1,12 @@
 ;Block0x1FC314
 ;子文件文本，共4条子文本
-.org 0x1FC2F2 :: .area 0x1FC314-.,0xFF  ;原位覆写须限定area
+.org 0x1FC2E6 :: .area 0x1FC314-.,0xFF  ;原位覆写须限定area
+
+
+;－－－－－－－－－－－－        
+;.strn "つうしんエラーてﾞす{结束}{结束}"
+ .strn "{结束}"
+;－－－－－－－－－－－－ 
 
 
 .align 2,0xFF :: Block0x1FC314_000:
