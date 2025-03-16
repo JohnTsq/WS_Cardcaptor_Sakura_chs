@@ -28,6 +28,7 @@
 .include ".\graphic\textspeed.s"
 .include ".\graphic\title.s"
 .include ".\graphic\boot.s"
+.include ".\graphic\communication.s"
 
 ;数据
 .include ".\data\data.s"
