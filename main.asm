@@ -29,6 +29,7 @@
 .include ".\graphic\title.s"
 .include ".\graphic\boot.s"
 .include ".\graphic\communication.s"
+.include ".\graphic\stats.s"
 
 ;数据
 .include ".\data\data.s"
