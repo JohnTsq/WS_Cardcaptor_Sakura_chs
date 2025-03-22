@@ -24,12 +24,13 @@
 
 ;图片
 .include ".\graphic\battle.s"
-.include ".\graphic\soundtest.s"
-.include ".\graphic\textspeed.s"
-.include ".\graphic\title.s"
 .include ".\graphic\boot.s"
 .include ".\graphic\communication.s"
+.include ".\graphic\dateday.s"
+.include ".\graphic\soundtest.s"
 .include ".\graphic\stats.s"
+.include ".\graphic\textspeed.s"
+.include ".\graphic\title.s"
 
 ;数据
 .include ".\data\data.s"
