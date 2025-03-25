@@ -15,5 +15,5 @@
 
 .org 0x0902C6
     .incbin ".\graphic\battle\baserom_902C6h_230h.2bpp"
-.org 0x0904FA
-    .incbin ".\graphic\battle\baserom_904FAh_80h.tilemap"
+.org 0x1F99F4
+    .incbin ".\graphic\battle\baserom_1F99F4h_80h.tilemap"
