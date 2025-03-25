@@ -2,7 +2,9 @@
     .incbin ".\graphic\title\baserom_D93CAh_260h.2bpp"
 
 .org 0x0D799A
-    .incbin ".\graphic\title\baserom_D799Ah_1610h.2bpp"
+    .incbin ".\graphic\title\baserom_D799Ah_1610h-chs.2bpp"
+.org 0x0D8FAE
+    .incbin ".\graphic\title\baserom_D8FAEh_3F0h-chs.tilemap"
 
 .org 0x0D42E0
     .incbin ".\graphic\title\menu\baserom_D42E0h_BB0h.2bpp"
