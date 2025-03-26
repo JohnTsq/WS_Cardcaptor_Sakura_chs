@@ -27,6 +27,8 @@
 .include ".\graphic\boot.s"
 .include ".\graphic\communication.s"
 .include ".\graphic\dateday.s"
+.include ".\graphic\icon.s"
+.include ".\graphic\save.s"
 .include ".\graphic\soundtest.s"
 .include ".\graphic\stats.s"
 .include ".\graphic\textspeed.s"
