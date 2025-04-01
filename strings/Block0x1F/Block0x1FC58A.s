@@ -81,7 +81,7 @@
 
 .align 2,0xFF :: Block0x1FC58A_016:
 ;.strn "ハﾟニック{结束}"
- .strn "危机{结束}"
+ .strn "恐慌{结束}"
 
 .align 2,0xFF :: Block0x1FC58A_017:
 ;.strn "きんはﾟく{结束}"
