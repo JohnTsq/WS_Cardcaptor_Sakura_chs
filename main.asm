@@ -36,4 +36,8 @@
 
 ;数据
 .include ".\data\data.s"
+
+;片头
+.include ".\src\splash.s"
+
 .close
