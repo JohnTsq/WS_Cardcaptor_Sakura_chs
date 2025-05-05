@@ -19,11 +19,13 @@
     .incbin ".\graphic\title\menu\baserom_DAA2Eh_1A4h.tilemap"
 .org 0x0DABD6
     .incbin ".\graphic\title\menu\baserom_DABD6h_150h.tilemap"
+.org 0x0DAD26
+    .d16 13
 .org 0x0DAD2A
     .incbin ".\graphic\title\menu\baserom_DAD2Ah_198h.tilemap"
+.org 0x0DAEC2
+    .d16 14
 .org 0x0DAEC6
     .incbin ".\graphic\title\menu\baserom_DAEC6h_180h.tilemap"
 .org 0x0DB04A
     .incbin ".\graphic\title\menu\baserom_DB04Ah_1C8h.tilemap"
-.org 0x0DB216
-    .incbin ".\graphic\title\menu\baserom_DB216h_6Ch.tilemap"
