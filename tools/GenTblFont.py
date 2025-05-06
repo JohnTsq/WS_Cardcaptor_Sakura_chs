@@ -48,6 +48,8 @@ for root, dirs, files in os.walk(path):
         string_file_path = os.path.join(root, file)
         char_counts = count_chars(string_file_path, char_counts)
 
+char_counts.update({'♡': None, 'ỽ': None})
+
 print(len(char_counts))    
 # for k, v in char_counts.items():
 #     print(f'{k}: {v}')
@@ -116,8 +118,8 @@ FF={说话人_未知_头像图片}
 67=？
 68=…
 69=～
-6A=♡
-6B=ỽ
+6A=。
+6B=，
 6C=!?
 6D=!!
 
@@ -252,8 +254,7 @@ EC=ゅ
 ED=ょ
 EE=っ
 EF={█6}
-F0=。
-F1=，
+
 F2=ﾞ
 F3=ﾟ
 F4=․
@@ -327,7 +328,8 @@ with open(r'graphic\fonts\charmap_chs_font.tbl', 'w', encoding='utf-8') as f:
         if char in temp_chars:
             continue
         f.write(f'{code_point:04X}={char}\n')
-        font_bin += glyph_bytes(char, mode)
+        if char not in "♡ỽ":
+            font_bin += glyph_bytes(char, mode)
         if code_point == 0xDBFF:
             print('out of code point')
             break
@@ -335,6 +337,11 @@ with open(r'graphic\fonts\charmap_chs_font.tbl', 'w', encoding='utf-8') as f:
             code_point = first_byte[first_byte.index(code_point >> 8) + 1] << 8
         else:
             code_point += 1
+    # f.write(f'{code_point:04X}=♡\n')
+    # f.write(f'{code_point+1:04X}=ỽ\n')
+    with open('baserom.ws', 'rb') as g:
+        g.seek(0x1F_1220)
+        font_bin += g.read(8*4*2)
     
     if len(font_bin) < 0x1_0000:
         with open(r'graphic\fonts\GfxOfNewFont.1bpp', 'wb') as g:
@@ -343,6 +350,9 @@ with open(r'graphic\fonts\charmap_chs_font.tbl', 'w', encoding='utf-8') as f:
         print('font bin too large')
     
 with open(r'charmap_chs_insertion.tbl', 'w', encoding='utf-8') as g:
+    glyph_bin = glyph_bytes('。', mode) + glyph_bytes('，', mode)
+    with open(r'graphic\fonts\GfxOfFont6A-6B.1bpp', 'wb') as f:
+        f.write(glyph_bin)
     g.write(charmap_chs.lstrip())
     with open(r'graphic\fonts\charmap_chs_font.tbl', 'r', encoding='utf-8') as f:
         g.write(f.read())
