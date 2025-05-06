@@ -1,4 +1,5 @@
 import os, re
+from PIL import Image, ImageDraw, ImageFont
 
 def count_chars(file_path, char_counts):
 
@@ -303,13 +304,30 @@ FBD6=Ｚ
 temp_chars = r'今日李小狼君来会持场所出太阳炎地妹卖店知家母实中国有名道士系远渡自分开目觉使空见雷素材元兽弱集无理主人子在照问题侧咒敌谁取最罗针盘写样途食色访关系审判应探抗互角宿移动我贷创要亡候补现特杖五助峰咏唱铃新'
 iter_char = iter(char_counts.keys())
 
+font_path = r"C:\Users\John\Documents\Fonts\Small SimSun.ttf"
+font_size = 12
+font = ImageFont.truetype(font_path, font_size)
+mode = '1'
+def glyph_bytes(char, mode: str):
+    canvas = Image.new(mode, (16, 16))
+    draw = ImageDraw.Draw(canvas)
+    draw.text((1,2), char, font=font, fill=1)
+
+    glyph_bin = canvas.crop((0,0,8, 8)).tobytes() + \
+                canvas.crop((8,0,16,8)).tobytes() + \
+                canvas.crop((0,8,8, 16)).tobytes() + \
+                canvas.crop((8,8,16,16)).tobytes()
+    return glyph_bin
+
 with open(r'graphic\fonts\charmap_chs_font.tbl', 'w', encoding='utf-8') as f:
+    font_bin = b''
     code_point = 0xE500
     first_byte = (0xE5, 0xF6, 0xF7, 0xF8, 0xD9, 0xDA, 0xDB)
     for char in iter_char:
         if char in temp_chars:
             continue
         f.write(f'{code_point:04X}={char}\n')
+        font_bin += glyph_bytes(char, mode)
         if code_point == 0xDBFF:
             print('out of code point')
             break
@@ -317,6 +335,12 @@ with open(r'graphic\fonts\charmap_chs_font.tbl', 'w', encoding='utf-8') as f:
             code_point = first_byte[first_byte.index(code_point >> 8) + 1] << 8
         else:
             code_point += 1
+    
+    if len(font_bin) < 0x1_0000:
+        with open(r'graphic\fonts\GfxOfNewFont.1bpp', 'wb') as g:
+            g.write(font_bin)
+    else:
+        print('font bin too large')
     
 with open(r'charmap_chs_insertion.tbl', 'w', encoding='utf-8') as g:
     g.write(charmap_chs.lstrip())
