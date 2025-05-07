@@ -18,7 +18,8 @@ def count_chars(file_path, char_counts):
                 char_counts[char] = 1
                 if not '\u4e00' <= char <= '\u9fff':
                     print(f'{char} in {file_path}')
-    return dict(sorted(char_counts.items(), key=lambda item: item[1], reverse=True))
+    return {k: char_counts[k] for k in sorted(char_counts)}
+    # return dict(sorted(char_counts.items(), key=lambda item: item[1], reverse=True))
 
 char_counts = {}
 
@@ -305,7 +306,9 @@ FBD6=Ｚ
 temp_chars = r'今日李小狼君来会持场所出太阳炎地妹卖店知家母实中国有名道士系远渡自分开目觉使空见雷素材元兽弱集无理主人子在照问题侧咒敌谁取最罗针盘写样途食色访关系审判应探抗互角宿移动我贷创要亡候补现特杖五助峰咏唱铃新'
 iter_char = iter(char_counts.keys())
 
-font_path = r"C:\Users\John\Documents\Fonts\Small SimSun.ttf"
+font_path = r"resources\Small SimSun.ttf"
+if not os.path.exists(font_path):
+    print(f"文件 {font_path} 不存在。")
 font_size = 12
 font = ImageFont.truetype(font_path, font_size)
 mode = '1'
