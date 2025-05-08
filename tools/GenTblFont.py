@@ -10,7 +10,7 @@ def count_chars(file_path, char_counts):
         matches = sub_pattern.sub('', matches)
         
         for char in matches:
-            if char in '０１２３４５６７８９ー！？…～♡ỽ!?()｢｣『』。，․· 　♪Ⓓ☆ⓏⒶⒷⓄＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺ':
+            if char in '０１２３４５６７８９ー！？…～♡ỽ!?()｢｣『』。，､․· 　♪Ⓓ☆ⓏⒶⒷⓄＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺBSTbceilnoprstuw':
                 continue
             elif char in char_counts:
                 char_counts[char] += 1
@@ -36,9 +36,6 @@ for root, dirs, files in os.walk(path):
 path = r"strings\Block0x12"
 for root, dirs, files in os.walk(path):
     for file in files:
-        # if file[-5:-3] in ('09'):
-        #     # print(file)
-        #     continue
         string_file_path = os.path.join(root, file)
         char_counts = count_chars(string_file_path, char_counts)
 path = r"strings\Block0x1F"
@@ -235,27 +232,28 @@ D8={█1}
 D9={█2}
 DA={█3}
 DB={█4}
-DC=ァ
-DD=ィ
-DE=ゥ
-DF=ェ
-E0=ォ
-E1=ャ
-E2=ュ
-E3=ョ
-E4=ッ
+DC=B
+DD=S
+DE=T
+DF=b
+E0=c
+E1=e
+E2=i
+E3=l
+E4=n
 E5={█5}
-E6=ぁ
-E7=ぃ
-E8=ぅ
-E9=ぇ
-EA=ぉ
-EB=ゃ
-EC=ゅ
+E6=o
+E7=p
+E8=r
+E9=s
+EA=t
+EB=u
+EC=w
 ED=ょ
 EE=っ
 EF={█6}
 
+F1=､
 F2=ﾞ
 F3=ﾟ
 F4=․
@@ -340,8 +338,7 @@ with open(r'graphic\fonts\charmap_chs_font.tbl', 'w', encoding='utf-8') as f:
             code_point = first_byte[first_byte.index(code_point >> 8) + 1] << 8
         else:
             code_point += 1
-    # f.write(f'{code_point:04X}=♡\n')
-    # f.write(f'{code_point+1:04X}=ỽ\n')
+
     with open('baserom.ws', 'rb') as g:
         g.seek(0x1F_1220)
         font_bin += g.read(8*4*2)

@@ -6,5 +6,5 @@
 .orga 0x1F12A0
     .incbin ".\graphic\fonts\GfxOfFont6E-D1.1bpp"
 
-; .orga 0x1F2310
-;     .incbin ".\graphic\fonts\GfxOfFontF1.1bpp"
+.orga 0x1F2060
+    .incbin ".\graphic\fonts\GfxOfFontDC-EC.1bpp"
