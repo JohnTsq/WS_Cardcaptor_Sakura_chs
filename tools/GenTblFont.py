@@ -1,4 +1,5 @@
 import os, re
+from PIL import Image, ImageDraw, ImageFont
 
 def count_chars(file_path, char_counts):
 
@@ -9,7 +10,7 @@ def count_chars(file_path, char_counts):
         matches = sub_pattern.sub('', matches)
         
         for char in matches:
-            if char in '０１２３４５６７８９ー！？…～♡ỽ!?()｢｣『』。，․· 　♪Ⓓ☆ⓏⒶⒷⓄＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺ':
+            if char in '０１２３４５６７８９ー！？…～♡ỽ!?()｢｣『』。，､․· 　♪Ⓓ☆ⓏⒶⒷⓄＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺBSTbceilnoprstuw':
                 continue
             elif char in char_counts:
                 char_counts[char] += 1
@@ -17,7 +18,8 @@ def count_chars(file_path, char_counts):
                 char_counts[char] = 1
                 if not '\u4e00' <= char <= '\u9fff':
                     print(f'{char} in {file_path}')
-    return dict(sorted(char_counts.items(), key=lambda item: item[1], reverse=True))
+    return {k: char_counts[k] for k in sorted(char_counts)}
+    # return dict(sorted(char_counts.items(), key=lambda item: item[1], reverse=True))
 
 char_counts = {}
 
@@ -34,9 +36,6 @@ for root, dirs, files in os.walk(path):
 path = r"strings\Block0x12"
 for root, dirs, files in os.walk(path):
     for file in files:
-        # if file[-5:-3] in ('09'):
-        #     # print(file)
-        #     continue
         string_file_path = os.path.join(root, file)
         char_counts = count_chars(string_file_path, char_counts)
 path = r"strings\Block0x1F"
@@ -46,6 +45,8 @@ for root, dirs, files in os.walk(path):
             continue
         string_file_path = os.path.join(root, file)
         char_counts = count_chars(string_file_path, char_counts)
+
+char_counts.update({'♡': None, 'ỽ': None})
 
 print(len(char_counts))    
 # for k, v in char_counts.items():
@@ -115,8 +116,8 @@ FF={说话人_未知_头像图片}
 67=？
 68=…
 69=～
-6A=♡
-6B=ỽ
+6A=。
+6B=，
 6C=!?
 6D=!!
 
@@ -231,28 +232,28 @@ D8={█1}
 D9={█2}
 DA={█3}
 DB={█4}
-DC=ァ
-DD=ィ
-DE=ゥ
-DF=ェ
-E0=ォ
-E1=ャ
-E2=ュ
-E3=ョ
-E4=ッ
+DC=B
+DD=S
+DE=T
+DF=b
+E0=c
+E1=e
+E2=i
+E3=l
+E4=n
 E5={█5}
-E6=ぁ
-E7=ぃ
-E8=ぅ
-E9=ぇ
-EA=ぉ
-EB=ゃ
-EC=ゅ
+E6=o
+E7=p
+E8=r
+E9=s
+EA=t
+EB=u
+EC=w
 ED=ょ
 EE=っ
 EF={█6}
-F0=。
-F1=，
+
+F1=､
 F2=ﾞ
 F3=ﾟ
 F4=․
@@ -303,13 +304,33 @@ FBD6=Ｚ
 temp_chars = r'今日李小狼君来会持场所出太阳炎地妹卖店知家母实中国有名道士系远渡自分开目觉使空见雷素材元兽弱集无理主人子在照问题侧咒敌谁取最罗针盘写样途食色访关系审判应探抗互角宿移动我贷创要亡候补现特杖五助峰咏唱铃新'
 iter_char = iter(char_counts.keys())
 
+font_path = r"resources\Small SimSun.ttf"
+if not os.path.exists(font_path):
+    print(f"文件 {font_path} 不存在。")
+font_size = 12
+font = ImageFont.truetype(font_path, font_size)
+mode = '1'
+def glyph_bytes(char, mode: str):
+    canvas = Image.new(mode, (16, 16))
+    draw = ImageDraw.Draw(canvas)
+    draw.text((1,2), char, font=font, fill=1)
+
+    glyph_bin = canvas.crop((0,0,8, 8)).tobytes() + \
+                canvas.crop((8,0,16,8)).tobytes() + \
+                canvas.crop((0,8,8, 16)).tobytes() + \
+                canvas.crop((8,8,16,16)).tobytes()
+    return glyph_bin
+
 with open(r'graphic\fonts\charmap_chs_font.tbl', 'w', encoding='utf-8') as f:
+    font_bin = b''
     code_point = 0xE500
     first_byte = (0xE5, 0xF6, 0xF7, 0xF8, 0xD9, 0xDA, 0xDB)
     for char in iter_char:
         if char in temp_chars:
             continue
         f.write(f'{code_point:04X}={char}\n')
+        if char not in "♡ỽ":
+            font_bin += glyph_bytes(char, mode)
         if code_point == 0xDBFF:
             print('out of code point')
             break
@@ -317,8 +338,21 @@ with open(r'graphic\fonts\charmap_chs_font.tbl', 'w', encoding='utf-8') as f:
             code_point = first_byte[first_byte.index(code_point >> 8) + 1] << 8
         else:
             code_point += 1
+
+    with open('baserom.ws', 'rb') as g:
+        g.seek(0x1F_1220)
+        font_bin += g.read(8*4*2)
+    
+    if len(font_bin) < 0x1_0000:
+        with open(r'graphic\fonts\GfxOfNewFont.1bpp', 'wb') as g:
+            g.write(font_bin)
+    else:
+        print('font bin too large')
     
 with open(r'charmap_chs_insertion.tbl', 'w', encoding='utf-8') as g:
+    glyph_bin = glyph_bytes('。', mode) + glyph_bytes('，', mode)
+    with open(r'graphic\fonts\GfxOfFont6A-6B.1bpp', 'wb') as f:
+        f.write(glyph_bin)
     g.write(charmap_chs.lstrip())
     with open(r'graphic\fonts\charmap_chs_font.tbl', 'r', encoding='utf-8') as f:
         g.write(f.read())
