@@ -21,7 +21,6 @@
 .include ".\strings\Block0x12.s"
 .include ".\strings\Block0x1F.s"
 
-
 ;图片
 .include ".\graphic\battle.s"
 .include ".\graphic\boot.s"
@@ -39,5 +38,9 @@
 
 ;片头
 .include ".\src\splash.s"
+
+.orga 0x1FFFD0
+    .ascii "armips version: ", tostring(version())
+    .notice "armips version: " + tostring(version())
 
 .close
