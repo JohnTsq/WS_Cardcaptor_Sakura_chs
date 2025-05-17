@@ -1,4 +1,4 @@
-chcp 65001
+@REM chcp 65001
 ".\tools\armips\armips.exe" ".\main.asm" -sym ".\main.sym"
 ".\tools\CalChecksum\CalChecksum.exe" ".\CCS_StnFnCC_CHS_test.ws" ".\CCS_StnFnCC_CHS_test.ws"
 "D:\RetroGames\Translation_Tool\debugger\Mesen.exe" ".\CCS_StnFnCC_CHS_test.ws"
