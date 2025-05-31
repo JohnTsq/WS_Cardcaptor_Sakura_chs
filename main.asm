@@ -1,7 +1,7 @@
 .gba ;实际没有支持的架构，仅借用框架
-.create ".\CCS_StnFnCC_CHS_test.ws",0x0
+.create ".\patched.ws",0x0
 .close
-.open ".\baserom.ws",".\CCS_StnFnCC_CHS_test.ws",0x0
+.open ".\baserom.ws",".\patched.ws",0x0
 
 ;文件头及宏定义
 .include ".\src\romheader.s"
