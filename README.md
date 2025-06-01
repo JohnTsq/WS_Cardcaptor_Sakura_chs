@@ -71,6 +71,22 @@
 
 </details>
 
+# 运行游戏
+本游戏在mesen2、mednafen核心的模拟器以及实体机（需使用烧录卡）均测试通过。
+移动端的模拟器（如android使用mednafen核心的wonderdroid ultra模拟器）也可玩。
+如有可能，建议使用mesen2模拟器进行游戏。
+本游戏系统和机制较为复杂，游戏的攻略请参考[攻略表格](https://gitee.com/JohnTsq/WS_Cardcaptor_Sakura_chs/releases/download/v1.0/%E5%B0%8F%E6%A8%B1%E7%BD%91%E9%A1%B5%E6%94%BB%E7%95%A5%E7%BF%BB%E8%AF%91.xls)
+攻略翻译自[桐野時の日記](http://no-weather.seesaa.net/article/451382178.html)
+联机模式在通关后解锁，该模式的具体玩法请查阅游戏原来的说明书。
+本游戏在汉化的过程中，均保留了原文参照。有兴趣可以在此通过搜索译文来查阅原文。
+如有任何有关本汉化的问题或者建议，欢迎大家在`issue`反馈。
+> 已知问题
+mednafen核心（以及更早的基于Cygne核心的模拟器）均存在片头动画延迟的问题，但是在mesen2或实机均无此问题。
+现有的所有模拟器均不支持联机模式。
+
+
 # 特别感谢
 + [@asie](https://github.com/asiekierka)：WonderSwan 相关资料整理、软件开发及答疑支持。
 + [@Sour](https://github.com/SourMesen)：在 Mesen 模拟器中添加 WonderSwan 支持，为调试工作提供了极大便利。
+
+# 汉化截图
