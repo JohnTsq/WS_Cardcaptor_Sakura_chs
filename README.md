@@ -40,8 +40,6 @@
 > <div style="text-align: right">— <b>PECO</b></div>
 
 
-
-
 # 构建汉化
 > [!IMPORTANT]
 > 本项目基于具有如下校验值的 ROM ，构建时请确保所用 ROM 与下述信息一致：
@@ -58,9 +56,11 @@
 
 <details><summary><b>补丁构建</b></summary>
 
-1. 从 Releases 下载 bps 格式的补丁文件。
+1. 从 Releases 下载 bps 格式的补丁文件。<sup>[1]</sup>
 2. 准备符合上述校验值的 ROM 文件。
 3. 使用支持 bps 格式的补丁工具，将补丁应用于 ROM ，生成汉化后的 ROM 文件。
+
+[1]: 若无法从 Releases 下载，请尝试前往 [ROMHACK.ING](https://romhack.ing/database/content/entry/FNwEEoLASc61cMYmbs9ySA/cardcaptor-sakura-sakura-to-fushigi-na-clow-card-chinese) 下载。
 
 </details>
 
@@ -101,7 +101,7 @@
 > [!CAUTION]
 mednafen 核心（以及更早的基于 Cygne 核心的模拟器）均存在片头动画延迟的问题，但是 ares、 Mesen 或实机均无此问题。
 >
-> 现有的所有模拟器均不支持联机模式。
+> 现有的所有模拟器均不支持 WonderSwan 的联机。
 
 
 # 特别感谢
